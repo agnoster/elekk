@@ -1,6 +1,6 @@
 Elekk
 =====
-Elekk[1] is a Ruby library for World of Warcraft data.
+[Elekk][1] is a Ruby library for World of Warcraft data.
 
 It does not do very much right now.
 
