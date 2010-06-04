@@ -50,8 +50,21 @@ module Elekk
     
     def self.each
       @array.each do |v|
-        yield v
+        yield v unless v.nil?
       end
+    end
+    
+    def self.find(cond=nil, &block)
+      each do |v|
+        if cond and not cond === v.to_s
+          next
+        end
+        if block and not yield v
+          next
+        end
+        return v
+      end
+      return nil
     end
     
     def to_s
@@ -64,8 +77,8 @@ module Elekk
   end
   
   class Klass < Enum
-    self.add_items "Warrior", "Paladin", "Hunter", "Rogue", "Priest",
-                  "Death Knight", "Shaman", "Mage", "Warlock", nil, "Druid", 1
+    self.add_items nil, "Warrior", "Paladin", "Hunter", "Rogue", "Priest",
+                  "Death Knight", "Shaman", "Mage", "Warlock", nil, "Druid"
   end
   
   class Faction < Enum
@@ -73,11 +86,22 @@ module Elekk
   end
   
   class Race < Enum
-    self.add_items 'Human', 'Orc', 'Dwarf', 'Night Elf', 'Undead',
-                   'Tauren', 'Gnome', 'Troll', nil, 'Blood Elf', 'Draenei', 1
+    self.add_items nil, 'Human', 'Orc', 'Dwarf', 'Night Elf', 'Undead',
+                   'Tauren', 'Gnome', 'Troll', nil, 'Blood Elf', 'Draenei'
   end
   
   class Gender < Enum
     self.add_items 'Male', 'Female'
   end
+  
+  class Quality < Enum
+    self.add_items 'Poor', 'Common', 'Uncommon', 'Rare', 'Epic', 'Legendary', 'Artifact', 'Heirloom'
+  end
+  
+  class Kind < Elekk::Enum
+    self.add_items nil, 'NPC', 'Object', 'Item', 'Item Set', 'Quest', 'Spell',
+      'Zone', 'Faction', 'Pet', 'Achievement'
+    self.add_items 'Class', 'Race', 'Skill', 13
+  end
+
 end

@@ -61,6 +61,14 @@ describe Character do
     @aldea.gender.should == Gender::Female
   end
   
+  it "should have the right title" do
+    @fyrbard.fullname.should == 'Fyrbard Jenkins'
+    @aldea.fullname.should == 'Aldea of the Nightfall'
+    @aldea.fullname(:strong).should == '<strong>Aldea</strong> of the Nightfall'
+    @fyrbard.fullname('').should == 'Fyrbard Jenkins'
+    @armory.character('Bitterleaf').fullname('strong').should == 'Loremaster <strong>Bitterleaf</strong>'
+  end
+  
   it "should generate the right image" do
     @fyrbard.portrait.should == 'http://us.wowarmory.com/_images/portraits/wow-80/0-3-5.gif';
     @aldea.portrait.should == 'http://us.wowarmory.com/_images/portraits/wow-80/1-1-1.gif';

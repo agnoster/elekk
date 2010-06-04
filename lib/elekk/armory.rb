@@ -1,6 +1,3 @@
-require 'typhoeus'
-require 'memcached'
-
 module Elekk
   class Armory
 
@@ -18,15 +15,6 @@ module Elekk
       end
 
       @region ||= Elekk::default_region
-
-      @hydra = Typhoeus::Hydra.new
-      @cache = Memcached.new
-      @hydra.cache_setter do |request|
-        @cache.set request.cache_key, request.response, request.cache_timeout
-      end
-      @hydra.cache_getter do |request|
-        @cache.get(request.cache_key) rescue nil
-      end
     end
 
     def character(name)
@@ -38,24 +26,15 @@ module Elekk
     end
 
     def get_xml(resource, params=nil)
-      response = get_url resource+'.xml', params
+      response = HTTP.request(url(resource+'.xml'), params, {
+        :cache_timeout => 24*3600,
+        :user_agent => 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.6; en-US; rv:1.9.1.9) Gecko/20100315 Firefox/3.5.9'
+      })
       Nokogiri::XML(response.body)
     end
     
-    def url(url)
-      base + url
-    end
-
-    def get_url(url, params=nil)
-      request = Typhoeus::Request.new(self.base + url,
-      :method => :get,
-      :params => params,
-      :user_agent => 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.6; en-US; rv:1.9.1.9) Gecko/20100315 Firefox/3.5.9',
-      :timeout => 1000,
-      :cache_timeout => 24*3600)
-      @hydra.queue request
-      @hydra.run
-      request.response
+    def url(path)
+      base + path
     end
   end
 end

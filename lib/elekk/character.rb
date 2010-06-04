@@ -51,5 +51,10 @@ module Elekk
       @armory.url "_images/portraits/wow-#{type}/#{gender.id}-#{race.id}-#{klass.id}.gif"
     end
     
+    def fullname(tag=nil)
+      n = name
+      n = "<#{tag}>#{n}</#{tag}>" if tag unless tag == ''
+      sheet.at_css('character')['prefix'] + n + sheet.at_css('character')['suffix']
+    end
   end
 end

@@ -36,13 +36,6 @@ describe Armory do
     @armory.url('character-sheet.xml').should == 'http://us.wowarmory.com/character-sheet.xml';
   end
   
-  it "should retrieve data from the armory" do
-    response = @armory.get_url 'character-sheet.xml', :r => 'Uldaman', :cn => 'Fyrbard'
-    response.should_not be_nil
-    response.body.should_not be_nil
-    response.body.should_not be_empty
-  end
-  
   it "should get xml from the armory" do
     xml = @armory.get_xml 'character-sheet', :r => 'Uldaman', :cn => 'Fyrbard'
     xml.should_not be_nil

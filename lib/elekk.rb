@@ -11,6 +11,8 @@ module Elekk
   end  
 end
 
-require File.dirname(__FILE__) + '/elekk/armory'
-require File.dirname(__FILE__) + '/elekk/character'
 require File.dirname(__FILE__) + '/elekk/data'
+require File.dirname(__FILE__) + '/elekk/http'
+require File.dirname(__FILE__) + '/elekk/armory'
+require File.dirname(__FILE__) + '/elekk/wowhead'
+require File.dirname(__FILE__) + '/elekk/character'
