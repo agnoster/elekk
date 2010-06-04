@@ -1,0 +1,14 @@
+CHANGELOG
+Rakefile
+lib/elekk.rb
+lib/elekk/armory.rb
+lib/elekk/character.rb
+lib/elekk/data.rb
+lib/elekk/http.rb
+lib/elekk/wowhead.rb
+readme.md
+spec/armory_spec.rb
+spec/character_spec.rb
+spec/klass_spec.rb
+spec/wowhead_spec.rb
+Manifest
