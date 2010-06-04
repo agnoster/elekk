@@ -32,6 +32,10 @@ describe Armory do
     eu_armory.base.should == 'http://eu.wowarmory.com/'
   end
   
+  it "should build URLs relative to the server" do
+    @armory.url('character-sheet.xml').should == 'http://us.wowarmory.com/character-sheet.xml';
+  end
+  
   it "should retrieve data from the armory" do
     response = @armory.get_url 'character-sheet.xml', :r => 'Uldaman', :cn => 'Fyrbard'
     response.should_not be_nil

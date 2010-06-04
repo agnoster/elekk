@@ -11,5 +11,6 @@ module Elekk
   end  
 end
 
-require 'elekk/armory'
-require 'elekk/character'
+require File.dirname(__FILE__) + '/elekk/armory'
+require File.dirname(__FILE__) + '/elekk/character'
+require File.dirname(__FILE__) + '/elekk/data'

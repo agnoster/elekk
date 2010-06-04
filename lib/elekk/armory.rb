@@ -41,6 +41,10 @@ module Elekk
       response = get_url resource+'.xml', params
       Nokogiri::XML(response.body)
     end
+    
+    def url(url)
+      base + url
+    end
 
     def get_url(url, params=nil)
       request = Typhoeus::Request.new(self.base + url,
