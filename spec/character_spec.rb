@@ -61,6 +61,20 @@ describe Character do
     @aldea.gender.should == Gender::Female
   end
   
+  it "should have the right specs" do
+    @fyrbard.spec(0).should == TalentTree::Priest::Shadow
+    @fyrbard.spec(1).should == TalentTree::Priest::Holy
+    @aldea.spec(:active).should == TalentTree::Warrior::Protection
+    @armory.character('Alassiel').spec(0).should == TalentTree::Hunter::BeastMastery
+    @armory.character('Alassiel').spec(0).name.should == 'Beast Mastery'
+    @armory.character('Ultimohombre').spec(0).should == TalentTree::DeathKnight::Frost
+  end
+  
+  it "should have the right points" do
+    @fyrbard.points.should >= 4000
+    @fyrbard.points.should <= 5000
+  end
+  
   it "should have the right title" do
     @fyrbard.fullname.should == 'Fyrbard Jenkins'
     @aldea.fullname.should == 'Aldea of the Nightfall'

@@ -98,10 +98,42 @@ module Elekk
     self.add_items 'Poor', 'Common', 'Uncommon', 'Rare', 'Epic', 'Legendary', 'Artifact', 'Heirloom'
   end
   
-  class Kind < Elekk::Enum
+  class Kind < Enum
     self.add_items nil, 'NPC', 'Object', 'Item', 'Item Set', 'Quest', 'Spell',
       'Zone', 'Faction', 'Pet', 'Achievement'
     self.add_items 'Class', 'Race', 'Skill', 13
   end
-
+  
+  module TalentTree
+    class Priest < Enum
+      self.add_items 'Discipline', 'Holy', 'Shadow'
+    end
+    class Warrior < Enum
+      self.add_items 'Arms', 'Fury', 'Protection'
+    end
+    class Shaman < Enum
+      self.add_items 'Elemental', 'Enhancement', 'Restoration'
+    end
+    class Druid < Enum
+      self.add_items 'Balance', 'Feral', 'Restoration'
+    end
+    class Paladin < Enum
+      self.add_items 'Holy', 'Protection', 'Retribution'
+    end
+    class Mage < Enum
+      self.add_items 'Arcane', 'Fire', 'Frost'
+    end
+    class Warlock < Enum
+      self.add_items 'Affliction', 'Demonology', 'Destruction'
+    end
+    class DeathKnight < Enum
+      self.add_items 'Blood', 'Frost', 'Unholy'
+    end
+    class Hunter < Enum
+      self.add_items 'Beast Mastery', 'Marksmanship', 'Survival'
+    end
+    class Rogue < Enum
+      self.add_items 'Assassination', 'Combat', 'Subtlety'
+    end
+  end
 end

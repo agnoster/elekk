@@ -44,6 +44,24 @@ module Elekk
       @properties[:gender] ||= Gender[sheet.at_css('character')['genderId'].to_i]
     end
     
+    def points
+      @properties[:points] ||= sheet.at_css('character')['points'].to_i
+    end
+    
+    def spec(which)
+      if not @properties[:specs]
+        specs = {}
+        primary = 0
+        sheet.css('talentSpecs talentSpec').each do |t|
+          n = t['group'].to_i-1
+          specs[n] = TalentTree.const_get(klass.to_sym)[t['prim'].to_s]
+          specs[:active] = specs[n] if t['active']
+        end
+        @properties[:specs] = specs
+      end
+      @properties[:specs][which]
+    end
+    
     def portrait
       type = 'default'
       [60, 70, 80].each { |m| type = m if level >= m }
