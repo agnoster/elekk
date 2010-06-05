@@ -29,13 +29,36 @@ module Elekk
     # default verb is GET
     def self.request(url, params=nil, opts={})
       self.init
-      opts = {:method => :get, :params => params, :timeout => 1000}.merge opts
+      opts = {:method => :get, :params => params, :timeout => 10000}.merge opts
       
       request = Typhoeus::Request.new(url, opts)
-
+      
       @hydra.queue request
       @hydra.run
-      request.response
+      request
+    end
+    
+    def self.xml(url, params=nil, opts={})
+      request = self.request(url, params, opts)
+      xml = Nokogiri::XML(request.response.body)
+      if xml.errors.length > 0
+        $stderr.write "XML Parse errors:\n"
+        p xml.errors
+        @cache.delete request.cache_key
+      end
+      xml
+    end
+    
+    def self.json(url, params=nil, opts={})
+      request = self.request(url, params, opts)
+      begin
+        json = JSON request.response.body
+        raise if json.nil?
+      rescue
+        $stderr.write "JSON Parse errors:\n"
+        @cache.delete request.cache_key
+      end
+      json
     end
     
   end

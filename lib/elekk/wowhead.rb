@@ -3,8 +3,7 @@ require 'json'
 module Elekk
   class Wowhead
     def self.search(term)
-      response = HTTP.request('http://www.wowhead.com/search', {:q => term, :opensearch => nil}, :cache_timeout => 60)
-      resp = JSON.parse(response.body)
+      resp = HTTP.json('http://www.wowhead.com/search', {:q => term, :opensearch => nil}, :cache_timeout => 60)
       data = []
       resp[1].each_with_index do |v,i|
         d = resp[7][i]
@@ -15,7 +14,7 @@ module Elekk
     end
     
     class Result
-      attr_reader :name, :id, :kind, :icon, :quality
+      attr_reader :id, :name, :kind, :icon, :quality
       
       def initialize(id, name, kind, icon=nil, quality=nil)
         @id = id
@@ -39,7 +38,7 @@ module Elekk
       end
       
       def icon_url(size=:medium) # :small, :medium, or :large
-        "http://static.wowhead.com/images/wow/icons/#{size}/#{icon}.jpg" if icon
+        "http://static.wowhead.com/images/wow/icons/#{size}/#{icon.gsub(/'/,'-')}.jpg" if icon
       end
       
       def self.from_html(mkp)

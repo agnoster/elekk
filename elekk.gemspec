@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Isaac Wasileski"]
-  s.date = %q{2010-06-04}
+  s.date = %q{2010-06-05}
   s.description = %q{A simple library for World of Warcraft data in Ruby.}
   s.email = %q{agnoster@gmail.com}
   s.files = [
@@ -19,12 +19,14 @@ Gem::Specification.new do |s|
      "VERSION",
      "elekk.gemspec",
      "lib/elekk.rb",
+     "lib/elekk/achievement.rb",
      "lib/elekk/armory.rb",
      "lib/elekk/character.rb",
      "lib/elekk/data.rb",
      "lib/elekk/http.rb",
      "lib/elekk/wowhead.rb",
      "readme.md",
+     "spec/achievement_spec.rb",
      "spec/armory_spec.rb",
      "spec/character_spec.rb",
      "spec/klass_spec.rb",
@@ -36,7 +38,8 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.7}
   s.summary = %q{A simple library for World of Warcraft data in Ruby.}
   s.test_files = [
-    "spec/armory_spec.rb",
+    "spec/achievement_spec.rb",
+     "spec/armory_spec.rb",
      "spec/character_spec.rb",
      "spec/klass_spec.rb",
      "spec/wowhead_spec.rb"

@@ -26,11 +26,14 @@ module Elekk
     end
 
     def get_xml(resource, params=nil)
-      response = HTTP.request(url(resource+'.xml'), params, {
+      response = HTTP.xml(url(resource+'.xml'), params, {
         :cache_timeout => 24*3600,
         :user_agent => 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.6; en-US; rv:1.9.1.9) Gecko/20100315 Firefox/3.5.9'
       })
-      Nokogiri::XML(response.body)
+    end
+    
+    def self.icon_url(icon)
+      "http://us.wowarmory.com/wow-icons/_images/51x51/#{icon}.jpg"
     end
     
     def url(path)

@@ -20,8 +20,16 @@ module Elekk
       @sheet ||= xml :sheet
     end
     
-    def xml(resource)
-      self.armory.get_xml "character-#{resource}", :r => @realm, :cn => @name
+    def achievements(category)
+      @achievements ||= {}
+      @achievements[category.to_sym] ||=
+        xml(:achievements, :c => category.to_i).css('achievement').map {|x| Achievement.from_xml x}
+      
+    end
+    
+    def xml(resource, opts={})
+      opts = {:r => @realm, :cn => @name}.merge opts
+      self.armory.get_xml "character-#{resource}", opts
     end
     
     def klass
