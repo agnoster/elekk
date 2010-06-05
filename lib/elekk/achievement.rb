@@ -8,7 +8,7 @@ module Elekk
       @points = opts[:points]
       @icon = opts[:icon]
       @description = opts[:description]
-      @category = opts[:category]
+      @category = AchievementCategory[opts[:category]]
       @completed = opts[:completed]
     end
     
@@ -18,7 +18,7 @@ module Elekk
         :points => node['points'].to_i,
         :icon => node['icon'].to_s,
         :description => node['description'].to_s,
-        :category => Achievements[node['categoryId'].to_i]
+        :category => node['categoryId'].to_i
       })
       a.completed = Time.parse(node['dateCompleted'].to_s) if node['dateCompleted']
       a
@@ -33,7 +33,19 @@ module Elekk
     end
   end
   
-  class Achievements < Enum
-    add_item 'Raid', 168
+  class AchievementCategory < Enum
+    add_item 'General', 92
+    add_item 'Quests', 96
+    add_item 'Exploration', 97
+    add_item 'Player vs. Player', 95
+    add_item 'Dungeons & Raids', 168
+    add_item 'Professions', 169
+    add_item 'Reputation', 201
+    add_item 'World Events', 155
+    add_item 'Feats of Strength', 81
+    
+    add_obj  AchievementCategory::DungeonsRaids, :Raid
+    add_obj  AchievementCategory::PlayervsPlayer, :PvP
+    add_obj  AchievementCategory::Reputation, :Rep
   end
 end

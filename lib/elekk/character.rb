@@ -21,6 +21,7 @@ module Elekk
     end
     
     def achievements(category)
+      category = AchievementCategory[category]
       @achievements ||= {}
       @achievements[category.to_sym] ||=
         xml(:achievements, :c => category.to_i).css('achievement').map {|x| Achievement.from_xml x}

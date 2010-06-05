@@ -22,21 +22,32 @@ module Elekk
         @hash[idx.gsub(/\W/,'').to_sym]
       elsif idx.is_a? Symbol
         @hash[idx]
+      elsif idx.is_a? Enum
+        idx
       else
         nil
       end
     end
     
     def self.add_item(name, id=nil?)
-      @hash ||= {}
       @array ||= []
       id ||= @array.length
-      if name.nil?
-        @array[id] = nil
+      obj = name ? self.new(name, id) : nil
+      add_obj obj, nil, id
+    end
+    
+    def self.add_obj(obj, sym=nil, id=nil)
+      @hash ||= {}
+      @array ||= []
+      if obj and @hash[obj.to_sym]
+        # creating an alias
+        @hash[sym] = obj if sym
+        @array[id] = obj if id
       else
-        k = self.new(name,id)
-        @array[id] = k
-        @hash[k.to_sym] = k
+        # adding for the first time
+        @hash[obj.to_sym] = obj if obj
+        id ||= @array.length
+        @array[id] = obj
       end
     end
     

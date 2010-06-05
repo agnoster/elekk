@@ -13,10 +13,10 @@ Gem::Specification.new do |s|
   s.description = %q{A simple library for World of Warcraft data in Ruby.}
   s.email = %q{agnoster@gmail.com}
   s.files = [
-    "CHANGELOG",
-     "Manifest",
+    "Manifest",
      "Rakefile",
      "VERSION",
+     "changelog.md",
      "elekk.gemspec",
      "lib/elekk.rb",
      "lib/elekk/achievement.rb",
