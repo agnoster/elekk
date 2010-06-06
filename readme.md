@@ -11,25 +11,25 @@ Goals:
 Here is what you can do with it currently:
 
  * Get basic character information from the Armory
-  * Class
-  * Level
-  * Faction
-  * Race
-  * Gender
-  * Achievement Points
-  * Title
-  * Armory portrait
+	  * Class
+	  * Level
+	  * Faction
+	  * Race
+	  * Gender
+	  * Achievement Points
+	  * Title
+	  * Armory portrait
  * Search on Wowhead with a simple text query and get
-  * Internal identifiers for results
-  * Links back to Wowhead
-  * Icons (when available)
-  * Quality (for items)
+	  * Internal identifiers for results
+	  * Links back to Wowhead
+	  * Icons (when available)
+	  * Quality (for items)
  * Query achievements
-  * Get internal identifiers, icons, title and description
-  * Get the date the character completed the achievement
-  * Currently only supports the Dungeons & Raids category
+	  * Get internal identifiers, icons, title and description
+	  * Get the date the character completed the achievement
+	  * Should support all categories now
 
-To see how all this is done, it's probably best to check the `spec/` directory, which has exhaustive examples of how to use nearly all the APIs, and is likely to be kept more up-to-date than this readme.
+To see how all this is done, it's probably best to check the [`spec/`][2] directory, which has exhaustive examples of how to use nearly all the APIs, and is likely to be kept more up-to-date than this readme.
 
 Example:
 
@@ -59,3 +59,4 @@ Example:
 	=> "<a href='http://www.wowhead.com/achievement=4539'>Once Bitten, Twice Shy (10 player)</a>"
 
 [1]: http://github.com/agnoster/elekk "Elekk on github"
+[2]: http://github.com/agnoster/elekk/tree/master/spec/ "Elekk specs on github"
