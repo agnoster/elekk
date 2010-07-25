@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{elekk}
-  s.version = "0.1.0"
+  s.version = "1.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Isaac Wolkerstorfer"]
-  s.date = %q{2010-06-05}
+  s.date = %q{2010-07-25}
   s.description = %q{A simple library for World of Warcraft data in Ruby.}
   s.email = %q{agnoster@gmail.com}
   s.files = [
@@ -30,6 +30,7 @@ Gem::Specification.new do |s|
      "spec/armory_spec.rb",
      "spec/character_spec.rb",
      "spec/klass_spec.rb",
+     "spec/test.rb",
      "spec/wowhead_spec.rb"
   ]
   s.homepage = %q{http://github.com/agnoster/elekk}
@@ -42,6 +43,7 @@ Gem::Specification.new do |s|
      "spec/armory_spec.rb",
      "spec/character_spec.rb",
      "spec/klass_spec.rb",
+     "spec/test.rb",
      "spec/wowhead_spec.rb"
   ]
 
