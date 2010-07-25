@@ -57,6 +57,10 @@ module Elekk
       @properties[:points] ||= sheet.at_css('character')['points'].to_i
     end
     
+    def feed
+      self.armory.get_feed @name, @realm
+    end
+    
     def spec(which)
       if not @properties[:specs]
         specs = {}
@@ -75,7 +79,7 @@ module Elekk
       type = 'default'
       [60, 70, 80].each { |m| type = m if level >= m }
       
-      @armory.url "_images/portraits/wow-#{type}/#{gender.id}-#{race.id}-#{klass.id}.gif"
+      self.armory.url "_images/portraits/wow-#{type}/#{gender.id}-#{race.id}-#{klass.id}.gif"
     end
     
     def fullname(tag=nil)

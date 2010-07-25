@@ -1,7 +1,7 @@
 require 'elekk'
 include Elekk
 
-describe Wowhead do
+describe Wowhead, '#search' do
   before :each do
     @q = Wowhead.search 'Varian'
   end

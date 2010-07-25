@@ -36,9 +36,18 @@ describe Armory do
     @armory.url('character-sheet.xml').should == 'http://us.wowarmory.com/character-sheet.xml';
   end
   
-  it "should get xml from the armory" do
+  it "should get XML from the armory" do
     xml = @armory.get_xml 'character-sheet', :r => 'Uldaman', :cn => 'Fyrbard'
     xml.should_not be_nil
+  end
+  
+  it "should get XML from armory with custom extensions" do
+    xml = @armory.get_xml 'character-feed.atom', :r => 'Uldaman', :cn => 'Fyrbard'
+    xml.should_not be_nil
+  end
+  
+  it "should get a multi-character feed" do
+    feed = @armory.get_feed ['Aldea', 'Alassiel', 'Puya', 'Ultimohombre', 'Fyrbard']
   end
   
 end

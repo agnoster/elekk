@@ -76,10 +76,10 @@ describe Character do
   end
   
   it "should have the right title" do
-    @fyrbard.fullname.should == 'Fyrbard Jenkins'
+    @fyrbard.fullname.should == 'Fyrbard of the Ashen Verdict'
     @aldea.fullname.should == 'Aldea of the Nightfall'
     @aldea.fullname(:strong).should == '<strong>Aldea</strong> of the Nightfall'
-    @fyrbard.fullname('').should == 'Fyrbard Jenkins'
+    @fyrbard.fullname('').should == 'Fyrbard of the Ashen Verdict'
     @armory.character('Bitterleaf').fullname('strong').should == 'Loremaster <strong>Bitterleaf</strong>'
   end
   
@@ -87,6 +87,11 @@ describe Character do
     @fyrbard.portrait.should == 'http://us.wowarmory.com/_images/portraits/wow-80/0-3-5.gif';
     @aldea.portrait.should == 'http://us.wowarmory.com/_images/portraits/wow-80/1-1-1.gif';
     @armory.character('Harimad').portrait.should == 'http://us.wowarmory.com/_images/portraits/wow-default/1-3-1.gif';
+  end
+  
+  it "should have a valid RSS feed" do
+    feed = @fyrbard.feed
+    feed.should_not be_nil
   end
 
 end

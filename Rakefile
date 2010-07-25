@@ -9,7 +9,7 @@ begin
     s.email = "agnoster@gmail.com"
     s.homepage = "http://github.com/agnoster/elekk"
     s.description = "A simple library for World of Warcraft data in Ruby."
-    s.authors = ["Isaac Wasileski"]
+    s.authors = ["Isaac Wolkerstorfer"]
     s.files =  FileList["*", "{lib,spec}/**/*"]
     s.add_dependency 'typhoeus'
     s.add_dependency 'memcached'
