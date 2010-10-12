@@ -1,0 +1,16 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    memcached (1)
+    nokogiri (1.4.3.1)
+    rack (1.2.1)
+    typhoeus (0.1.31)
+      rack
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  memcached
+  nokogiri
+  typhoeus
