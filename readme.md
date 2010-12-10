@@ -1,14 +1,17 @@
 Elekk
 =====
-[Elekk][1] is a Ruby library for World of Warcraft data.
 
-Goals:
+[Elekk] is a Ruby gem that provides an interface to data for Blizzard's highly popular MMORPG, World of Warcraft. It currently uses data both from Blizzard's official [Armory] website, as well as the popular community database, [Wowhead]. Future versions may make use of additional sources of information.
+
+Goals
+-----
 
  * Make querying information as natural and simple as possible
  * Have native representations of every data type
  * Reflect actual identifiers/schemes as closely as possible
 
-Here is what you can do with it currently:
+Features
+--------
 
  * Get basic character information from the Armory
 	  * Class
@@ -29,9 +32,10 @@ Here is what you can do with it currently:
 	  * Get the date the character completed the achievement
 	  * Should support all categories now
 
-To see how all this is done, it's probably best to check the [`spec/`][2] directory, which has exhaustive examples of how to use nearly all the APIs, and is likely to be kept more up-to-date than this readme.
+To see how all this is done, it's probably best to check the [`spec/`][specs] directory, which has exhaustive examples of how to use nearly all the APIs, and is likely to be kept more up-to-date than this readme.
 
-Example:
+Example
+-------
 
 	>> a = Armory.new 'Uldaman', :us
 	=> #<Elekk::Armory:0x10168cf20 @region=:us, @realm="Uldaman">
@@ -58,5 +62,7 @@ Example:
 	>> results.first.to_html
 	=> "<a href='http://www.wowhead.com/achievement=4539'>Once Bitten, Twice Shy (10 player)</a>"
 
-[1]: http://github.com/agnoster/elekk "Elekk on github"
-[2]: http://github.com/agnoster/elekk/tree/master/spec/ "Elekk specs on github"
+[Elekk]: http://github.com/agnoster/elekk "Elekk on github"
+[specs]: http://github.com/agnoster/elekk/tree/master/spec/ "Elekk specs on github"
+[Armory]: http://www.wowarmory.com/ "The World of Warcraft Armory online"
+[Wowhead]: http://www.wowhead.com/ "Wowhead"
