@@ -21,6 +21,8 @@ Gem::Specification.new do |s|
   s.add_dependency 'json'
   s.add_dependency 'typhoeus'
   s.add_dependency 'memcached'
+
+  s.add_development_dependency 'rake'
   s.add_development_dependency 'rspec'
 
   s.files         = `git ls-files`.split("\n")
