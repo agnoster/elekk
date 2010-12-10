@@ -35,6 +35,9 @@ describe Armory do
   it "should build URLs relative to the server" do
     @armory.url('character-sheet.xml').should == 'http://us.wowarmory.com/character-sheet.xml';
   end
+
+  it "should be able to reach the Armory" do
+  end
   
   it "should get XML from the armory" do
     xml = @armory.get_xml 'character-sheet', :r => 'Uldaman', :cn => 'Fyrbard'

@@ -5,6 +5,7 @@ describe Character do
   before :each do
     @armory = Armory.new 'Uldaman', :us
     @fyrbard = @armory.character 'Fyrbard'
+    @karzhak = @armory.character 'Karzhak', 'Farstriders'
     @aldea = Character.new 'Aldea', 'Uldaman'
   end
   
@@ -36,17 +37,17 @@ describe Character do
   it "should have the right class" do
     @fyrbard.klass.should == Klass::Priest
     @aldea.klass.should == Klass::Warrior
-    @armory.character('Ultimohombre').klass.should == Klass::DeathKnight
+    @karzhak.klass.should == Klass::DeathKnight
   end
   
   it "should have the right level" do
-    @fyrbard.level.should == 80
+    @karzhak.level.should == 58
     @armory.character('Harimad').level.should == 16
   end
   
   it "should have the right faction" do
     @fyrbard.faction.should == Faction::Alliance
-    @armory.character('Tabularasa').faction.should == Faction::Horde
+    @karzhak.faction.should == Faction::Horde
   end
   
   it "should have the right race" do
@@ -63,7 +64,7 @@ describe Character do
   
   it "should have the right specs" do
     @fyrbard.spec(0).should == TalentTree::Priest::Shadow
-    @fyrbard.spec(1).should == TalentTree::Priest::Holy
+    @fyrbard.spec(1).should == TalentTree::Priest::Discipline
     @aldea.spec(:active).should == TalentTree::Warrior::Protection
     @armory.character('Alassiel').spec(0).should == TalentTree::Hunter::BeastMastery
     @armory.character('Alassiel').spec(0).name.should == 'Beast Mastery'
@@ -71,15 +72,14 @@ describe Character do
   end
   
   it "should have the right points" do
-    @fyrbard.points.should >= 4000
-    @fyrbard.points.should <= 5000
+    @karzhak.points.should == 130
   end
   
   it "should have the right title" do
-    @fyrbard.fullname.should == 'Fyrbard of the Ashen Verdict'
-    @aldea.fullname.should == 'Aldea of the Nightfall'
-    @aldea.fullname(:strong).should == '<strong>Aldea</strong> of the Nightfall'
-    @fyrbard.fullname('').should == 'Fyrbard of the Ashen Verdict'
+    @fyrbard.fullname.should == 'Fyrbard the Hallowed'
+    @aldea.fullname.should == 'Aldea the Diplomat'
+    @aldea.fullname(:strong).should == '<strong>Aldea</strong> the Diplomat'
+    @fyrbard.fullname('').should == 'Fyrbard the Hallowed'
     @armory.character('Bitterleaf').fullname('strong').should == 'Loremaster <strong>Bitterleaf</strong>'
   end
   
