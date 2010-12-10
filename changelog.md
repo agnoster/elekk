@@ -1,3 +1,7 @@
+# elekk v1.0.2
+
+ * Switch to simpler gem building with Bundler
+
 # elekk v0.1.0
 
  * Get Achievements

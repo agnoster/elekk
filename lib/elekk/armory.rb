@@ -17,8 +17,8 @@ module Elekk
       @region ||= Elekk::default_region
     end
 
-    def character(name)
-      Character.new name, @realm, :region => @region, :armory => self
+    def character(name, realm=@realm)
+      Character.new name, realm, :region => @region, :armory => self
     end
 
     def base

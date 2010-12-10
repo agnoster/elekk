@@ -1,1 +1,3 @@
 pkg/*
+.bundle/
+elekk-1.0.2.gem
