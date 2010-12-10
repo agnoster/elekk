@@ -1,7 +1,3 @@
-source :rubygems
+source "http://rubygems.org"
 
-gem "nokogiri"
-gem "typhoeus"
-gem "memcached"
-gem "json"
-
+gemspec
