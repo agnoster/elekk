@@ -19,9 +19,7 @@ Gem::Specification.new do |s|
 
   s.rubyforge_project = "elekk"
 
-  s.pre_install do
-    puts "Elekk is deprecated. The format of the Armory API has changed, and there are currenty no plans to update the gem."
-  end
+  s.post_install_message = "Elekk is deprecated. The format of the Armory API has changed, and there are currenty no plans to update the gem."
 
   s.add_dependency 'nokogiri'
   s.add_dependency 'json'
