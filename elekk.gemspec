@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.authors     = ["Isaac Wolkerstorfer"]
   s.email       = ["i@agnoster.net"]
   s.homepage    = "https://github.com/agnoster/elekk"
-  s.summary     = %q{OUTDATED Ruby interface for World of Warcraft data}
+  s.summary     = %q{[OUTDATED] Ruby interface for World of Warcraft data}
   s.description = %q{WARNING: Outdated and non-functional!
 
   					Elekk is a Ruby gem that provides an interface to data for Blizzard's highly popular
@@ -18,6 +18,10 @@ Gem::Specification.new do |s|
   					make use of additional sources of information.}
 
   s.rubyforge_project = "elekk"
+
+  s.pre_install do
+    puts "Elekk is deprecated. The format of the Armory API has changed, and there are currenty no plans to update the gem."
+  end
 
   s.add_dependency 'nokogiri'
   s.add_dependency 'json'
