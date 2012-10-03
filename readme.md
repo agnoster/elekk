@@ -1,6 +1,10 @@
 Elekk
 =====
 
+> **STATUS: Defunct** — Elekk worked with the old version of the armory, and will no longer function with the new one. The code here is for historical purposes only, because I don't like hiding from bad code I wrote in the past :-)
+>
+> If you're interested in taking the project over in any way, please [email](mailto:i@agnoster.net) or [twitter](http://twitter.com/agnoster) me. In all honesty though, you're probably better off starting from scratch!
+
 [Elekk] is a Ruby gem that provides an interface to data for Blizzard's highly popular MMORPG, World of Warcraft. It currently uses data both from Blizzard's official [Armory] website, as well as the popular community database, [Wowhead]. Future versions may make use of additional sources of information.
 
 Goals
