@@ -1,3 +1,7 @@
+# elekk v1.0.3
+
+ * Bump just to note that the gem is deprecated and non-functional
+
 # elekk v1.0.2
 
  * Switch to simpler gem building with Bundler

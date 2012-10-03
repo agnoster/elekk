@@ -7,10 +7,12 @@ Gem::Specification.new do |s|
   s.version     = Elekk::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Isaac Wolkerstorfer"]
-  s.email       = ["agnoster@gmail.com"]
+  s.email       = ["i@agnoster.net"]
   s.homepage    = "https://github.com/agnoster/elekk"
-  s.summary     = %q{Ruby interface for World of Warcraft data}
-  s.description = %q{Elekk is a Ruby gem that provides an interface to data for Blizzard's highly popular
+  s.summary     = %q{OUTDATED Ruby interface for World of Warcraft data}
+  s.description = %q{WARNING: Outdated and non-functional!
+
+  					Elekk is a Ruby gem that provides an interface to data for Blizzard's highly popular
   					MMORPG, World of Warcraft. It currently uses data both from Blizzard's official Armory website
   					at wowarmory.com, as well as the popular community database, WoWhead.com. Future versions may
   					make use of additional sources of information.}
